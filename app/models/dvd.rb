@@ -1,3 +1,3 @@
 class Dvd < ActiveRecord::Base
-	belongs_to :clientes
+	belongs_to :cliente
 end
