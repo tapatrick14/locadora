@@ -26,6 +26,23 @@ ActiveRecord::Schema.define(version: 20141212144959) do
     t.integer "movie_id"
   end
 
+  create_table "customers", force: true do |t|
+    t.string   "name"
+    t.string   "last_name"
+    t.integer  "phone"
+    t.string   "address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "dvds", force: true do |t|
+    t.integer  "customer_id"
+    t.integer  "volume"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
   create_table "movies", force: true do |t|
     t.string   "title"
     t.datetime "created_at"
