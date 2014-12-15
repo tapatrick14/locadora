@@ -1,0 +1,10 @@
+<h1>LIST OF THE MOVIES</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>TITLE </th>
+      <th colspan="10"></th>
+    </tr>
+  </thead>
+</table>
