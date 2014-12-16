@@ -43,6 +43,7 @@ gem 'haml'
 gem 'therubyracer'
 gem 'execjs'
 gem 'pry'
+gem "yard"
 
 group :development, :test do
 	gem 'rspec-rails', '~> 3.0'
