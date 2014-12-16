@@ -1,0 +1,12 @@
+%p
+  %strong
+    TITLE:
+  = @movie.title
+%p
+  %strong
+    GENRE
+  = @movie.genre
+%p
+  = link_to 'Edit', edit_movie_path(@movie)
+  |
+  \#{link_to 'Back', movies_path}
