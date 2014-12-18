@@ -1,3 +1,4 @@
+
 class Movie < ActiveRecord::Migration
   def change
   	create_table :movies do |t|

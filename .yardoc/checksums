@@ -1,0 +1,5 @@
+app/models/concerns/movie.rb 8697650c7888b529cabfdaab36367829a4d569be
+app/helpers/movies_helper.rb 9c3176507785c2274d78acc42b4740f9216880d0
+app/helpers/application_helper.rb 4d1cd8f7fe9e16fd080d9ac5a7da284784a21e62
+app/controllers/movies_controller.rb 7f6e1dbf8d25973360566e8a45896d03a441ccde
+app/controllers/application_controller.rb 2230eadd4792d1587ad62bbfe3d2e9da8f2ca826

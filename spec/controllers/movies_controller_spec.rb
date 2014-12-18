@@ -56,7 +56,7 @@ RSpec.describe MoviesController, :type => :controller do
   	  it "Located the requestd movie." do
   	  	put :update, id: @movie, movie: hash_movie
   	  	assigns(:movie).should eq(@movie)
-  	  end
+      end
   	  it "Changed movie's attributes." do
   	  	put :update, id: @movie, movie: hash_movie
   	  	@movie.reload
