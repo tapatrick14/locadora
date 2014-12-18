@@ -77,7 +77,7 @@ RSpec.describe CustomersController, :type => :controller do
 
 			it "redirects to the updated costumer" do
 				put :update, id: @new_customer, customer: new_customer2
-				response.should redirect_to @costumer
+				response.should redirect_to(action: "show", id: @new_customer)
 			end
 		end
 	end

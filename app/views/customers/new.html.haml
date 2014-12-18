@@ -1,0 +1,12 @@
+%h1 Add new customer
+= form_for @customer do |customer|
+  Name: #{customer.text_field :name}
+  %br/
+  Last Name: #{customer.text_field :last_name}
+  %br/
+  Phone: #{customer.text_field :phone}
+  %br/
+  Address: #{customer.text_field :address}
+  %br/
+  = customer.submit
+= link_to 'Back', action: 'index'
