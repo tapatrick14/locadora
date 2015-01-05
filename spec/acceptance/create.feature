@@ -1,8 +1,9 @@
-Feature: Create a new movie
-  As an user 
-  I want to create a new movie
+Feature: Create a new Movie
+  As an User
+  I want to add a new movie
 
-  Scenario Outline: Create on the home page
-    Given I fill in a form correctly
-    When I give add in the new movie
-    Then the movie is create
+  Scenario: Create a movie in the home page
+    Given I fill an a form correctly
+    When I give add movie
+    Then the is created
+

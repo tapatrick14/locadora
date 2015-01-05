@@ -1,13 +1,14 @@
-step "I fill in a form correctly" do
-  :hash_movie = {title: "Title_01", genre: "Genre_01"}
+step "I fill an a form correctly" do
+  @title = "Title_1"
+  @genre = "Genre_1"
 end
 
-step "I give add in the new movie" do
-  @movie = Movie.create(hash_movie)
+step "I give add movie" do
+  @movie = Movie.create({title: @title, genre: @genre})
 end
 
-step "the movie is create" do
+step "the is created" do
   @movie.reload
-  @movie.title.should eq("Title_01")
-  @movie.genre.should eq("Genre_01")
-end
+  expect(@movie.title).to eq("Title_1")
+  expect(@movie.genre).to eq("Genre_1")
+end 
