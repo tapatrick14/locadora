@@ -1,18 +1,11 @@
-%h1 List of the movies
+%h1 CADASTRE OF THE FILMS
 %table
   %thead
     %tr
       %th TITLE
-      %th
-        %dd GENRE
   - @movies.each do |movie|
     %tr
-      %td= movie.title
-      %td
-        %dd= movie.genre
-      %td
-        %dd= link_to 'Show', movie
-        %td= link_to 'Edit', edit_movie_path(movie)
-        %td= link_to 'Destroy', movie, method: :delete, data:{confirm: 'Are you sure?'}
+      %th
+        %dd= link_to movie.title, movie
 %p
-%tr= link_to 'Add new movie', new_movie_path
+%tr= link_to 'CREATE', new_movie_path

@@ -1,0 +1,11 @@
+%h1 CADASTRE OF THE ACTORS
+%table
+  %thead
+    %tr
+      %th ARTISTIC NAME
+  - @actors.each do |actor|
+    %tr
+      %th
+        %dd= link_to actor.artistic_name, actor
+%p
+%tr= link_to 'CREATE', new_actor_path

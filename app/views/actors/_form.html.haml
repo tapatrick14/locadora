@@ -1,0 +1,28 @@
+= form_for(@actor) do |f|
+  - if @actor.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@actor.errors.count, "error")
+        prohibited this actor from being saved:
+      %ul
+        - @actor.errors.full_messages.each do |message|
+          %li
+            = message
+  %p
+  .field
+    = f.label "TRUE NAME"
+    %br/
+    = f.text_field :true_name
+  %p
+  .field
+    =f.label "ARTISTIC NAME"
+    %br/
+    = f.text_field :artistic_name
+  %p
+  .field
+    =f.label "DATE BIRTH"
+    %br/
+    = f.text_field :date_birth
+  %p
+  .actions
+    = f.button :CONFIRM

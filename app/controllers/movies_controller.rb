@@ -16,14 +16,14 @@ class MoviesController < ApplicationController
   #Receive the title and genre.
   #If don't save the movie is show a message of error.
   def create
-    @movie = Movie.new(movie_params)
+    @movie = Movie.new(params[:movie])
     respond_to do |format|
       if @movie.save
-        format.html{redirect_to @movie, notice: 'Movie was successfully created.'}
-    format.json{render :show, status: :created, location: @movie}
+        format.html { redirect_to(@movie, :notice => 'Movie was successfully created.') }
+        format.xml  { render :xml => @movie, :status => :created, :location => @movie }
       else
-        format.html{render :new}
-    format.json{render json: @movie.errors, status: unprocessable_entity}
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @movie.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -33,12 +33,12 @@ class MoviesController < ApplicationController
   #Receive a new title and a new genre.
   def update
     respond_to do |format|
-      if @movie.update(movie_params)
-        format.html{redirect_to @movie, notice: 'Movie was successfully updated.'}
-        format.json{render :show, status: :ok, location: @movie}
+      if @movie.update_attributes(params[:movie])
+        format.html { redirect_to(@movie, :notice => 'Movie was successfully updated.') }
+        format.xml  { head :ok }
       else
-        format.html{render :edit}
-        format.json{render json: @movie.errors, status: :unprocessable_entity}
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @movie.errors, :status => :unprocessable_entity }
       end
     end
   end

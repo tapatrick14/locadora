@@ -1,0 +1,21 @@
+%p
+  %strong
+    TRUE NAME:
+  = @actor.true_name
+%p
+  %strong
+    ARTISTIC NAME:
+  = @actor.artistic_name
+%p
+  %strong
+    DATE BIRTH:
+  = @actor.date_birth
+%p
+  %td= link_to 'UPDATE', edit_actor_path(@actor)
+  |
+  %td= link_to 'DELETE', @actor, method: :delete, data:{confirm: 'ARE YOU SURE?'}
+  |
+  %td= link_to 'BACK', actors_path
+
+
+

@@ -32,6 +32,7 @@ gem 'haml'
 gem 'yard'
 gem 'therubyracer'
 gem 'execjs'
+gem 'protected_attributes'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
@@ -52,4 +53,4 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
+gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
