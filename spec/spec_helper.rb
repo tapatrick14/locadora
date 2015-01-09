@@ -75,4 +75,7 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 =end
+# Load turnip steps
 end
+require 'turnip/rspec'
+Dir.glob("spec/acceptance/*steps.rb") { |f| load f, true }

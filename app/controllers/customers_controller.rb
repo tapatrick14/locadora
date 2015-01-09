@@ -7,7 +7,7 @@ class CustomersController < ApplicationController
 	end
 
 	# The show method shows particular customer.
-	def show 
+	def show
 		@customer = Customer.find(params[:id])
 	end
 
@@ -16,12 +16,11 @@ class CustomersController < ApplicationController
 	def destroy
 		@customer = Customer.find(params[:id])
 		@customer.destroy
-
 		redirect_to(action: "index")
 	end
 
 	# The new method is responsible to init the customer.
-	def new 
+	def new
 		@customer = Customer.new
 	end
 
@@ -29,8 +28,11 @@ class CustomersController < ApplicationController
 	# Receive the name, last_name, phone and address.
 	def create
 		@customer = Customer.new(customer_params)
-		@customer.save
-		redirect_to(action: "show", id: @customer)
+		if @customer.save
+			redirect_to(action: "show", id: @customer)
+		else
+			render action: "new"
+		end
 	end
 
 	# The edit method select a particular customer.
