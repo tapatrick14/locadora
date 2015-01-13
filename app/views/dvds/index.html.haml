@@ -1,0 +1,17 @@
+%h1 List of Dvds
+%br/
+= link_to 'New', action: 'new'
+%table
+  %tr
+    %th ID
+    %th Volume
+  - @dvds.each do |dvd|
+    %tr
+      %td
+        = dvd.id
+      %td
+        = dvd.volume
+      %td
+        = link_to 'Show', action: 'show', id: dvd
+        = link_to 'Destroy', dvd, method: :delete, data: { confirm: 'Are you sure?' }
+        = link_to 'Edit', action: 'edit', id: dvd

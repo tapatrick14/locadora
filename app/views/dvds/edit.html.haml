@@ -1,0 +1,13 @@
+%h1 Edit dvd
+%ul
+  - @dvd.errors.full_messages.each do |msg|
+    %li
+      = msg
+= form_for @dvd do |f|
+  %p
+    = f.label :volume
+    %br/
+    = f.text_field :volume
+  = f.submit
+  %br/
+  = link_to 'Back', action: 'index'

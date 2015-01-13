@@ -1,4 +1,5 @@
 #Class of the DVD.
 class Dvd < ActiveRecord::Base
-	belongs_to :cliente
+	belongs_to :customer
+  validates_presence_of :volume
 end

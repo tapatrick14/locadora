@@ -1,0 +1,10 @@
+%h1 Show Customer
+%p
+  %b Id:
+  = @dvd.id
+%p
+  %b Volume:
+  = @dvd.volume
+
+= link_to 'Edit', action: 'edit', id: @dvd
+= link_to 'Back', action: 'index'
