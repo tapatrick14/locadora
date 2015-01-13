@@ -14,8 +14,10 @@
   %td= link_to 'UPDATE', edit_actor_path(@actor)
   |
   %td= link_to 'DELETE', @actor, method: :delete, data:{confirm: 'ARE YOU SURE?'}
-  |
-  %td= link_to 'BACK', actors_path
+%p
+  %td= link_to 'BACK TO MOVIE', new_movie_path
+%p
+  %td= link_to 'BACK TO ACTOR', actors_path
 
 
 

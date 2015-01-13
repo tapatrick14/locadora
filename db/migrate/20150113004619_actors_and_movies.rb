@@ -10,5 +10,3 @@ class ActorsAndMovies < ActiveRecord::Migration
     drop_table :actors_movies
   end
 end
-
-

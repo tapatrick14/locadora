@@ -9,6 +9,6 @@ class Actor < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table actors
+    drop_table :actors
   end
 end

@@ -106,7 +106,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>This class controll the operation of CRUD in the movie.</p>
+<p>This class is responsible by control of the operation of CRUD in the movie.</p>
 
 
   </div>
@@ -147,7 +147,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The CREATE is responsible to add a new movie.</p>
+<p>CREATE is responsible by creation of the movie.</p>
 </div></span>
   
 </li>
@@ -171,7 +171,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The DESTROY is responsable to delete a movie.</p>
+<p>DESTROY is responsible by destruction of the movie.</p>
 </div></span>
   
 </li>
@@ -195,7 +195,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The INDEX is responsible to link the url.</p>
+<p>INDEX is responsible to show all movies.</p>
 </div></span>
   
 </li>
@@ -219,7 +219,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The NEW is responsible to init of movie.</p>
+<p>NEW is responsible by form filling of the movie.</p>
 </div></span>
   
 </li>
@@ -243,7 +243,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The UPDATE is responsable to modify a movie.</p>
+<p>UPDATE is responsible by update of the movie.</p>
 </div></span>
   
 </li>
@@ -277,8 +277,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>The CREATE is responsible to add a new movie. Receive the title and genre.
-If don&#39;t save the movie is show a message of error.</p>
+<p>CREATE is responsible by creation of the movie.</p>
 
 
   </div>
@@ -292,6 +291,8 @@ If don&#39;t save the movie is show a message of error.</p>
       <pre class="lines">
 
 
+16
+17
 18
 19
 20
@@ -301,22 +302,20 @@ If don&#39;t save the movie is show a message of error.</p>
 24
 25
 26
-27
-28
-29</pre>
+27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/movies_controller.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/movies_controller.rb', line 16</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span>
-  <span class='ivar'>@movie</span> <span class='op'>=</span> <span class='const'>Movie</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_movie_params'>movie_params</span><span class='rparen'>)</span>
+  <span class='ivar'>@movie</span> <span class='op'>=</span> <span class='const'>Movie</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:movie</span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_respond_to'>respond_to</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_format'>format</span><span class='op'>|</span>
     <span class='kw'>if</span> <span class='ivar'>@movie</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span>
-      <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_html'>html</span><span class='lbrace'>{</span><span class='id identifier rubyid_redirect_to'>redirect_to</span> <span class='ivar'>@movie</span><span class='comma'>,</span> <span class='label'>notice:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Movie was successfully created.</span><span class='tstring_end'>&#39;</span></span><span class='rbrace'>}</span>
-  <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span><span class='lbrace'>{</span><span class='id identifier rubyid_render'>render</span> <span class='symbol'>:show</span><span class='comma'>,</span> <span class='label'>status:</span> <span class='symbol'>:created</span><span class='comma'>,</span> <span class='label'>location:</span> <span class='ivar'>@movie</span><span class='rbrace'>}</span>
+      <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_html'>html</span> <span class='lbrace'>{</span><span class='id identifier rubyid_redirect_to'>redirect_to</span><span class='lparen'>(</span><span class='ivar'>@movie</span><span class='comma'>,</span> <span class='symbol'>:notice</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Movie was successfully created.</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='rbrace'>}</span>
+      <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_xml'>xml</span>  <span class='lbrace'>{</span><span class='id identifier rubyid_render'>render</span> <span class='symbol'>:xml</span> <span class='op'>=&gt;</span> <span class='ivar'>@movie</span><span class='comma'>,</span> <span class='symbol'>:status</span> <span class='op'>=&gt;</span> <span class='symbol'>:created</span><span class='comma'>,</span> <span class='symbol'>:location</span> <span class='op'>=&gt;</span> <span class='ivar'>@movie</span><span class='rbrace'>}</span>
     <span class='kw'>else</span>
-      <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_html'>html</span><span class='lbrace'>{</span><span class='id identifier rubyid_render'>render</span> <span class='symbol'>:new</span><span class='rbrace'>}</span>
-  <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span><span class='lbrace'>{</span><span class='id identifier rubyid_render'>render</span> <span class='label'>json:</span> <span class='ivar'>@movie</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='comma'>,</span> <span class='label'>status:</span> <span class='id identifier rubyid_unprocessable_entity'>unprocessable_entity</span><span class='rbrace'>}</span>
+      <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_html'>html</span> <span class='lbrace'>{</span><span class='id identifier rubyid_render'>render</span> <span class='symbol'>:action</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>new</span><span class='tstring_end'>&#39;</span></span><span class='rbrace'>}</span>
+      <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_xml'>xml</span>  <span class='lbrace'>{</span><span class='id identifier rubyid_render'>render</span> <span class='symbol'>:xml</span> <span class='op'>=&gt;</span> <span class='ivar'>@movie</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='comma'>,</span> <span class='symbol'>:status</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_unprocessable_entity'>unprocessable_entity</span><span class='rbrace'>}</span>
     <span class='kw'>end</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
@@ -337,8 +336,7 @@ If don&#39;t save the movie is show a message of error.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>The DESTROY is responsable to delete a movie. Receive the id of the movie
-that go to deleted.</p>
+<p>DESTROY is responsible by destruction of the movie.</p>
 
 
   </div>
@@ -352,22 +350,22 @@ that go to deleted.</p>
       <pre class="lines">
 
 
+43
+44
+45
+46
+47
 48
-49
-50
-51
-52
-53
-54</pre>
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/movies_controller.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/movies_controller.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_destroy'>destroy</span>
   <span class='ivar'>@movie</span><span class='period'>.</span><span class='id identifier rubyid_destroy'>destroy</span>
   <span class='id identifier rubyid_respond_to'>respond_to</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_format'>format</span><span class='op'>|</span>
-    <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_html'>html</span><span class='lbrace'>{</span><span class='id identifier rubyid_redirect_to'>redirect_to</span> <span class='id identifier rubyid_movies_path'>movies_path</span><span class='comma'>,</span> <span class='label'>notice:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Movie was successfully destroyed</span><span class='tstring_end'>&#39;</span></span><span class='rbrace'>}</span>
-    <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span><span class='lbrace'>{</span><span class='id identifier rubyid_head'>head</span> <span class='symbol'>:no_content</span><span class='rbrace'>}</span>
+    <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_html'>html</span> <span class='lbrace'>{</span><span class='id identifier rubyid_redirect_to'>redirect_to</span> <span class='id identifier rubyid_movies_path'>movies_path</span><span class='comma'>,</span> <span class='label'>notice:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Movie was successfully destroyed</span><span class='tstring_end'>&#39;</span></span><span class='rbrace'>}</span>
+    <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span> <span class='lbrace'>{</span><span class='id identifier rubyid_head'>head</span> <span class='symbol'>:no_content</span><span class='rbrace'>}</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -387,7 +385,7 @@ that go to deleted.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>The INDEX is responsible to link the url.</p>
+<p>INDEX is responsible to show all movies.</p>
 
 
   </div>
@@ -428,7 +426,7 @@ that go to deleted.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>The NEW is responsible to init of movie.</p>
+<p>NEW is responsible by form filling of the movie.</p>
 
 
   </div>
@@ -469,8 +467,7 @@ that go to deleted.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>The UPDATE is responsable to modify a movie. Receive the id of the movie
-that go to modified. Receive a new title and a new genre.</p>
+<p>UPDATE is responsible by update of the movie.</p>
 
 
   </div>
@@ -484,29 +481,29 @@ that go to modified. Receive a new title and a new genre.</p>
       <pre class="lines">
 
 
+30
+31
+32
+33
 34
 35
 36
 37
 38
 39
-40
-41
-42
-43
-44</pre>
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/movies_controller.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/movies_controller.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span>
   <span class='id identifier rubyid_respond_to'>respond_to</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_format'>format</span><span class='op'>|</span>
-    <span class='kw'>if</span> <span class='ivar'>@movie</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_movie_params'>movie_params</span><span class='rparen'>)</span>
-      <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_html'>html</span><span class='lbrace'>{</span><span class='id identifier rubyid_redirect_to'>redirect_to</span> <span class='ivar'>@movie</span><span class='comma'>,</span> <span class='label'>notice:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Movie was successfully updated.</span><span class='tstring_end'>&#39;</span></span><span class='rbrace'>}</span>
-      <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span><span class='lbrace'>{</span><span class='id identifier rubyid_render'>render</span> <span class='symbol'>:show</span><span class='comma'>,</span> <span class='label'>status:</span> <span class='symbol'>:ok</span><span class='comma'>,</span> <span class='label'>location:</span> <span class='ivar'>@movie</span><span class='rbrace'>}</span>
+    <span class='kw'>if</span> <span class='ivar'>@movie</span><span class='period'>.</span><span class='id identifier rubyid_update_attributes'>update_attributes</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:movie</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_html'>html</span> <span class='lbrace'>{</span><span class='id identifier rubyid_redirect_to'>redirect_to</span><span class='lparen'>(</span><span class='ivar'>@movie</span><span class='comma'>,</span> <span class='symbol'>:notice</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Movie was successfully updates.</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='rbrace'>}</span>
+      <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_xml'>xml</span>  <span class='lbrace'>{</span><span class='id identifier rubyid_head'>head</span> <span class='symbol'>:ok</span><span class='rbrace'>}</span>
     <span class='kw'>else</span>
-      <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_html'>html</span><span class='lbrace'>{</span><span class='id identifier rubyid_render'>render</span> <span class='symbol'>:edit</span><span class='rbrace'>}</span>
-      <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span><span class='lbrace'>{</span><span class='id identifier rubyid_render'>render</span> <span class='label'>json:</span> <span class='ivar'>@movie</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='comma'>,</span> <span class='label'>status:</span> <span class='symbol'>:unprocessable_entity</span><span class='rbrace'>}</span>
+      <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_html'>html</span> <span class='lbrace'>{</span><span class='id identifier rubyid_render'>render</span> <span class='symbol'>:action</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>edit</span><span class='tstring_end'>&#39;</span></span><span class='rbrace'>}</span>
+      <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_xml'>xml</span>  <span class='lbrace'>{</span><span class='id identifier rubyid_render'>render</span> <span class='symbol'>:xml</span> <span class='op'>=&gt;</span> <span class='ivar'>@movie</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='comma'>,</span> <span class='symbol'>:status</span> <span class='op'>=&gt;</span> <span class='symbol'>:unprocessable_entity</span><span class='rbrace'>}</span>
     <span class='kw'>end</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
@@ -520,7 +517,7 @@ that go to modified. Receive a new title and a new genre.</p>
 </div>
 
     <div id="footer">
-  Generated on Mon Jan  5 10:32:04 2015 by
+  Generated on Tue Jan 13 16:21:26 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.1.5).
 </div>
