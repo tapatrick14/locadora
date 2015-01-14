@@ -1,7 +1,0 @@
-app/models/dvd.rb 4e55ad79c1b5aa2c6548cd4f5f261eb655f118ab
-app/models/customer.rb 8ece9f66b0205b7e09c45b0b45658fa9d999bf1d
-app/models/concerns/movie.rb 34a8e02e4792c5deb9a91b4d6c35374627ea3ea2
-app/models/concerns/actor.rb ad93bac852db42181a760800dab855eabb1cadc4
-app/helpers/application_helper.rb 4d1cd8f7fe9e16fd080d9ac5a7da284784a21e62
-app/controllers/customers_controller.rb 744c75ea5833c9364f53c4e5a10683a749e38fd8
-app/controllers/application_controller.rb 0f6c262c5a4ec17cdd075d031561bba6f74ebac2
