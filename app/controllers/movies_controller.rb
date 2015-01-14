@@ -1,55 +1,50 @@
-#This class controll the operation of CRUD in the movie.
+#This class is responsible by control of the operation of CRUD in the movie.
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
 
-  #The INDEX is responsible to link the url.
+  #INDEX is responsible to show all movies. 
   def index
     @movies = Movie.all
   end
 
-  #The NEW is responsible to init of movie.
+  #NEW is responsible by form filling of the movie.
   def new
     @movie = Movie.new
   end
 
-  #The CREATE is responsible to add a new movie.
-  #Receive the title and genre.
-  #If don't save the movie is show a message of error.
+  #CREATE is responsible by creation of the movie.
   def create
     @movie = Movie.new(params[:movie])
     respond_to do |format|
       if @movie.save
-        format.html { redirect_to(@movie, :notice => 'Movie was successfully created.') }
-        format.xml  { render :xml => @movie, :status => :created, :location => @movie }
+        format.html {redirect_to(@movie, :notice => 'Movie was successfully created.')}
+        format.xml  {render :xml => @movie, :status => :created, :location => @movie}
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @movie.errors, :status => :unprocessable_entity }
+        format.html {render :action => 'new'}
+        format.xml  {render :xml => @movie.errors, :status => unprocessable_entity}
       end
     end
   end
 
-  #The UPDATE is responsable to modify a movie.
-  #Receive the id of the movie that go to modified.
-  #Receive a new title and a new genre.
+  #UPDATE is responsible by update of the movie.
   def update
     respond_to do |format|
       if @movie.update_attributes(params[:movie])
-        format.html { redirect_to(@movie, :notice => 'Movie was successfully updated.') }
-        format.xml  { head :ok }
+        format.html {redirect_to(@movie, :notice => 'Movie was successfully updates.')}
+        format.xml  {head :ok}
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @movie.errors, :status => :unprocessable_entity }
+        format.html {render :action => 'edit'}
+        format.xml  {render :xml => @movie.errors, :status => :unprocessable_entity}
       end
     end
   end
 
-  #The DESTROY is responsable to delete a movie.
-  #Receive the id of the movie that go to deleted.
+  #DESTROY is responsible by destruction of the movie.
   def destroy
     @movie.destroy
     respond_to do |format|
-      format.html{redirect_to movies_path, notice: 'Movie was successfully destroyed'}
-      format.json{head :no_content}
+      format.html {redirect_to movies_path, notice: 'Movie was successfully destroyed'}
+      format.json {head :no_content}
     end
   end
 

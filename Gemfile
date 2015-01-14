@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+  source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -33,6 +33,7 @@ gem 'yard'
 gem 'therubyracer'
 gem 'execjs'
 gem 'protected_attributes'
+gem 'nested_form'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
