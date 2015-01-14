@@ -1,6 +1,0 @@
-app/models/movie.rb 2ca304723c20dd8d39b0198febd20efd867c48c0
-app/helpers/movies_helper.rb a5892108414f088c49ddff8c08ec98bf729d1fed
-app/models/concerns/movie.rb 6f6c71ef830d5da0e6442615a3a73ef46ee2fa85
-app/helpers/application_helper.rb eef3d3adce96afe8b14c19b6135323f47543d979
-app/controllers/movies_controller.rb fc8c0033671ba2e662caa80db575bb5249ca79db
-app/controllers/application_controller.rb 7afa8bd02d2c49fd8df3c6e372b8520c9f916e8e
