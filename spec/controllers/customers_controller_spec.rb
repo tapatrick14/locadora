@@ -61,7 +61,6 @@ RSpec.describe CustomersController, :type => :controller do
 
   describe 'PUT update' do
     subject (:new_customer2){{name: "Pedro", last_name: "Vieira", phone: 888888 , address: "Rua nao sei"}}
-
     before :each do
       @new_customer = Customer.create({name: "Joao", last_name: "Da Silva", phone: 888888 , address: "Rua nao sei"})
     end
@@ -87,7 +86,6 @@ RSpec.describe CustomersController, :type => :controller do
   end
 
     describe "DELETE destroy" do
-
       before :each do
         @new_customer = Customer.create(name: "Joao", last_name: "Da Silva", phone: 888888 , address: "Rua nao sei")
       end

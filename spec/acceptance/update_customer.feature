@@ -3,7 +3,7 @@ Feature: Update a movie
   I want to modify a movie
 
 Scenario: Modify on the home page
-	Given I have a customer to modify
+  Given I have a customer to modify
   And I fill in a form with new attributes
   When I give Edit in the customer
   Then The customer is modified
