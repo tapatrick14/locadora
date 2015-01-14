@@ -1,8 +1,0 @@
-app/models/concerns/movie.rb 2386356c5251a0c2ddf934e98632eb6cfc61fc99
-app/helpers/actors_helper.rb fc5ba6677b8757ebc84f82eca03f764cb3d17834
-app/helpers/movies_helper.rb a5892108414f088c49ddff8c08ec98bf729d1fed
-app/models/concerns/actor.rb 895572c8419a6ced6be7659a1dc340ddd4bc0bbb
-app/helpers/application_helper.rb eef3d3adce96afe8b14c19b6135323f47543d979
-app/controllers/movies_controller.rb 714dd333ed43400f9f6abc8993c393d63b1a08e3
-app/controllers/actors_controller.rb 05bc3e5892139935fa417a47a60a1345253d0595
-app/controllers/application_controller.rb 7afa8bd02d2c49fd8df3c6e372b8520c9f916e8e
