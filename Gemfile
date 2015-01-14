@@ -27,7 +27,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'pry'
-gem 'devise'
+gem 'protected_attributes'
 gem 'haml'
 gem 'yard'
 gem 'therubyracer'
@@ -55,3 +55,4 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
+
