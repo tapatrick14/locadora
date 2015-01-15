@@ -11,8 +11,7 @@ step "I click in destroy buttom" do
 end
 
 step "I click in confirm buttom"  do
-  sleep(1)
-  page.driver.browser.accept_js_confirms!
+  page.driver.browser.accept_js_confirms
 end
 
 step "I should see customer list" do

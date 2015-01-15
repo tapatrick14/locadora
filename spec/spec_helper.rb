@@ -2,7 +2,7 @@ require 'turnip/rspec'
 Dir.glob("spec/steps/*steps.rb") { |f| load f, true }
 
 # Add this to load Capybara integration:
-require 'capybara/rspec'
+require 'turnip/capybara'
 Capybara.javascript_driver = :webkit
 
 
