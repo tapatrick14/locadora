@@ -13,7 +13,8 @@ step "I chossed the movie to delete" do
 end
 
 step "Confirm if I want to delete the movie" do
-  #page.driver.browser.accept_js_confirms
+  binding.pry
+  page.driver.confirm_messages
 end
 
 step "the movie is deleted" do
