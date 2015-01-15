@@ -1,10 +1,9 @@
-require 'pry'
 step "give I have a movie" do
   @movie = Movie.create({title: 'Movie_01', genre: 'Genre_01'})
 end
 
 step "I visted the show page of the movie to update" do
-  visit('movies/' + @movie.id.to_s)
+  visit('/movies/' + @movie.id.to_s)
 end
 
 step "I chossed the movie to update" do
