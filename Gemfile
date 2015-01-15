@@ -1,4 +1,4 @@
-  source 'https://rubygems.org'
+source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -27,13 +27,10 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'pry'
-gem 'protected_attributes'
+gem 'capybara'
 gem 'haml'
 gem 'yard'
-gem 'therubyracer'
-gem 'execjs'
-gem 'protected_attributes'
-gem 'nested_form'
+gem "capybara-webkit"
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
@@ -54,5 +51,4 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
 

@@ -7,10 +7,6 @@
     GENRE
   = @movie.genre
 %p
-  %strong 
-    ACTORS OF THE MOVIE
-  = @movie.actors.map {|x| x.to_label}.join ', '
-%p
   %td= link_to 'UPDATE', edit_movie_path(@movie)
   |
   %td= link_to 'DELETE', @movie, method: :delete, data:{confirm: 'ARE YOU SURE?'}

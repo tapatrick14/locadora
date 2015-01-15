@@ -1,12 +1,13 @@
-= simple_form_for(@movie) do |f|
+= form_for(@movie) do |f|
   - if @movie.errors.any?
     #error_explanation
       %h2
         = pluralize(@movie.errors.count, "error")
-        prohibited this movie from being saved:
+        prohibited this evento from being saved:
       %ul
-        - @movie.errors.full_messages.each do |msg|
-          %li= msg
+        - @movie.errors.full_messages.each do |message|
+          %li
+            = message
   %p
   .field
     = f.label :TITLE
@@ -17,14 +18,6 @@
     =f.label :GENRE
     %br/ 
     = f.text_field :genre
-  %p
-  .field
-    %br/
-    = f.association :actors, :as => :select
-  %p
-    = link_to 'ADD ACTOR', new_actor_path
-  %p
-    = link_to 'UPDATE ACTOR', actors_path
   %p
     = link_to 'BACK', movies_path
   %p 

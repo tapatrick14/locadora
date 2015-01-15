@@ -14,14 +14,14 @@ class MoviesController < ApplicationController
 
   #CREATE is responsible by creation of the movie.
   def create
-    @movie = Movie.new(params[:movie])
+    @movie = Movie.new(movie_params)
     respond_to do |format|
       if @movie.save
-        format.html {redirect_to(@movie, :notice => 'Movie was successfully created.')}
-        format.xml  {render :xml => @movie, :status => :created, :location => @movie}
+        format.html {redirect_to @movie, notice: 'Movie was successfully created.'}
+        format.json { render :show, status: :created, location: @movie }
       else
-        format.html {render :action => 'new'}
-        format.xml  {render :xml => @movie.errors, :status => unprocessable_entity}
+        format.html {render :new}
+        format.json{render json: @movie.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -29,12 +29,12 @@ class MoviesController < ApplicationController
   #UPDATE is responsible by update of the movie.
   def update
     respond_to do |format|
-      if @movie.update_attributes(params[:movie])
-        format.html {redirect_to(@movie, :notice => 'Movie was successfully updates.')}
-        format.xml  {head :ok}
+      if @movie.update(movie_params)
+        format.html { redirect_to @movie, notice: 'Movie was successfully updated.' }
+        format.json { render :show, status: :ok, location: @movie }
       else
-        format.html {render :action => 'edit'}
-        format.xml  {render :xml => @movie.errors, :status => :unprocessable_entity}
+        format.html { render :edit }
+        format.json { render json: @movie.errors, status: :unprocessable_entity }
       end
     end
   end

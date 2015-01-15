@@ -2,28 +2,16 @@ Feature: Update a movie
   As an user
   I want to modify a movie
 
-  Scenario: Modify on the home page without the actor
-    Given I have a movie to modify
-    And I fill in a form with new attributes
-    When I give Edit in the movie
-    Then the movie is modify
+  Scenario: Modify on the home page
+    Given give I have a movie
+    And I visted the show page of the movie to update
+    When I chossed the movie to update
+    And I fill in a form of the movie with new attributes
+    Then the movie is modify with success
 
-  Scenario: Modify on the show page without the actor
-    Given I have a movie to modify
-    And I fill in a form with new attributes
-    When I give Edit in the movie
-    Then the movie is modify
-
-  Scenario: Modify on the home page with the actor
-    Given I have a movie to modify
-    And I modifly a actor
-    And I fill in a form with new attributes
-    When I give Edit in the movie
-    Then the movie is modify
-
-  Scenario: Modify on the show page with the actor
-    Given I have a movie to modify
-    And I modifly a actor
-    And I fill in a form with new attributes
-    When I give Edit in the movie
-    Then the movie is modify
+  Scenario: Modify on the home page
+    Given give I have a movie
+    And I visted the show page of the movie to update
+    When I chossed the movie to update
+    And I didnt fill in a form of the movie with new attributes
+    Then the movie is modify with failure
