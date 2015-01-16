@@ -1,0 +1,11 @@
+%h1 MOVIES
+%table
+  %thead
+    %tr
+      %th TITLE
+  - @movies.each do |movie|
+    %tr
+      %th
+        %dd= link_to movie.title, movie
+%p
+%tr= link_to 'CREATE', new_movie_path

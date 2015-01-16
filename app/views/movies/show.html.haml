@@ -1,0 +1,18 @@
+%h1 NEW MOVIE
+%p
+  %strong
+    TITLE:
+  = @movie.title
+%p
+  %strong
+    GENRE
+  = @movie.genre
+%p
+  %td= link_to 'UPDATE', edit_movie_path(@movie)
+  |
+  %td= link_to 'DELETE', @movie, method: :delete, data:{confirm: 'ARE YOU SURE?'}
+  |
+  %td= link_to 'BACK', movies_path
+
+
+

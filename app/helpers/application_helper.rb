@@ -1,3 +1,3 @@
-#Mudule of the application helper.
+# Application Helper.
 module ApplicationHelper
 end
