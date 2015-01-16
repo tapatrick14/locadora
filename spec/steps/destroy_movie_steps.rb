@@ -15,4 +15,13 @@ step "Confirm if I want to delete the movie" do
 end
 
 step "the movie is deleted" do
+  expect(page).to_not have_selector("#NEW MOVIE")
+end
+
+step "Confirm if I dont want to delete the movie" do
+  page.driver.browser.reject_js_confirms
+end
+
+step "the movie isnt deleted" do
+  expect(page).to_not have_selector("#MOVIES")
 end
