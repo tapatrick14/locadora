@@ -1,0 +1,18 @@
+%h1 Show Customer
+%p
+  %b ID:
+  = @customer.id
+%p
+  %b Name:
+  = @customer.name
+%p
+  %b Last Name:
+  = @customer.last_name
+%p
+  %b Phone:
+  = @customer.phone
+%p
+  %b Address:
+  = @customer.address
+= link_to 'Edit', action: 'edit', id: @customer
+= link_to 'Back', action: 'index'

@@ -1,0 +1,21 @@
+%h1 List of Customer
+%br/
+= link_to 'New', action: 'new'
+%table
+  %tr
+    %th ID
+    %th Name
+    %th Last Name
+    %th Phone
+    %th Address
+  - @customers.each do |customer|
+    %tr
+      %td= customer.id
+      %td= customer.name
+      %td= customer.last_name
+      %td= customer.phone
+      %td= customer.address
+      %td
+        = link_to 'Show', action: 'show', id: customer
+        = link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' }
+        = link_to 'Edit', action: 'edit', id: customer

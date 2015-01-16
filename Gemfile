@@ -27,6 +27,9 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'pry'
+gem 'therubyracer'
+gem 'execjs'
+gem 'devise'
 gem 'capybara'
 gem 'haml'
 gem 'yard'
@@ -51,5 +54,3 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
-
