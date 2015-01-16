@@ -43,7 +43,14 @@ gem 'haml'
 gem 'therubyracer'
 gem 'execjs'
 gem 'pry'
+gem "yard"
+gem 'capybara'
+gem "capybara-webkit"
 
 group :development, :test do
 	gem 'rspec-rails', '~> 3.0'
+end
+
+group :test do
+  gem "turnip"
 end

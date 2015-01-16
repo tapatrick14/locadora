@@ -11,40 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141212144959) do
-
-  create_table "actors", force: true do |t|
-    t.string   "popular_name"
-    t.string   "artistic_name"
-    t.string   "birthday"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "actors_movies", id: false, force: true do |t|
-    t.integer "actor_id"
-    t.integer "movie_id"
-  end
+ActiveRecord::Schema.define(version: 20141211180348) do
 
   create_table "customers", force: true do |t|
     t.string   "name"
     t.string   "last_name"
     t.integer  "phone"
     t.string   "address"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "dvds", force: true do |t|
-    t.integer  "customer_id"
-    t.integer  "volume"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-  end
-
-  create_table "movies", force: true do |t|
-    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
