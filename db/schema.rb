@@ -13,6 +13,15 @@
 
 ActiveRecord::Schema.define(version: 20150114171214) do
 
+  create_table "customers", force: true do |t|
+    t.string   "name"
+    t.string   "last_name"
+    t.integer  "phone"
+    t.string   "address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "movies", force: true do |t|
     t.string   "title"
     t.string   "genre"
