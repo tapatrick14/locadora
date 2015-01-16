@@ -22,8 +22,9 @@ class MoviesController < ApplicationController
   # == Parameters:
   # This method receive the method NEW with MOVIE_PARAMS.
   # == Returns
-  # If the movie was successfully created you was receive the message "Movie was successfully created.".
-  # If the movie wasnt successfully created you was receive a message of error.
+  # It return a object.
+  # If the object was successfully created you was receive the message "Movie was successfully created.".
+  # If the object wasnt successfully created you was receive a message of error.
   def create
     @movie = Movie.new(movie_params)
     respond_to do |format|
