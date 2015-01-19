@@ -6,4 +6,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
+    #secondaryContent
+      = render 'common/session'
+    / = link_to "Sair", authenticated_root_path
     = yield
