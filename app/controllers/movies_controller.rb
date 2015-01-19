@@ -26,7 +26,7 @@ class MoviesController < ApplicationController
   # If the object was successfully created you was receive the message "Movie was successfully created.".
   # If the object wasnt successfully created you was receive a message of error.
   def create
-    @movie = Movie.new(movie_params)
+    @movie = Movie.new(params[:movie])
     respond_to do |format|
       if @movie.save
         format.html {redirect_to @movie, notice: 'Movie was successfully created.'}
@@ -47,7 +47,7 @@ class MoviesController < ApplicationController
   # If the movie wasnt successfully updated you was receive a message of error.
   def update
     respond_to do |format|
-      if @movie.update(movie_params)
+      if @movie.update_attributes(params[:movie])
         format.html { redirect_to @movie, notice: 'Movie was successfully updated.' }
         format.json { render :show, status: :ok, location: @movie }
       else

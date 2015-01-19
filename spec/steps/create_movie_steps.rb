@@ -1,3 +1,7 @@
+step "I have the actor" do
+  @actor = Actor.create({true_name: 'True Name_01', artistic_name: 'Artistic Name_01', birth: '2000-01-01'})
+end
+
 step 'I visted the cadastre page to movie' do
   visit('/movies/new')
 end
@@ -5,6 +9,7 @@ end
 step 'I filled out form of the movie correctly' do
   fill_in 'movie_title', with: 'Movie_1'
   fill_in 'movie_genre', with: 'Genre_1'
+  select(@actor.artistic_name, from: 'movie_actor_ids', match: :first)
   click_button 'CONFIRM'
 end
 

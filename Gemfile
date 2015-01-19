@@ -34,6 +34,8 @@ gem 'capybara'
 gem 'haml'
 gem 'yard'
 gem 'capybara-webkit'
+gem 'simple_form'
+gem 'protected_attributes'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
