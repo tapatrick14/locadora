@@ -3,7 +3,8 @@ Feature: Create a new Movie
   I want to add a new movie
 
   Scenario: Create a movie in the home page
-    Given I visted the cadastre page to movie
+    Given I have the actor
+    And I visted the cadastre page to movie
     When I filled out form of the movie correctly
     Then I should see a sign in success message of the movie
 

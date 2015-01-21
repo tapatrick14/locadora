@@ -1,0 +1,31 @@
+= form_for(@actor) do |f|
+  - if @actor.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@actor.errors.count, "error")
+        prohibited this evento from being saved:
+      %ul
+        - @actor.errors.full_messages.each do |message|
+          %li
+            = message
+  %p
+  .field
+    = f.label "ARTISTIC NAME"
+    %br/
+    = f.text_field :artistic_name
+  %p
+  .field
+    =f.label "TRUE NAME"
+    %br/ 
+    = f.text_field :true_name
+  %p
+  .field
+    =f.label "BIRTH"
+    %br/ 
+    = f.date_select :birth, :start_year => 1900
+
+  %p
+    = link_to 'BACK', actors_path
+  %p 
+  .actions
+    = f.submit "CONFIRM"

@@ -34,6 +34,7 @@ gem 'capybara'
 gem 'haml'
 gem 'yard'
 gem 'capybara-webkit'
+gem 'nested_form'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
