@@ -9,7 +9,7 @@ end
 step 'I filled out form of the movie correctly' do
   fill_in 'movie_title', with: 'Movie_1'
   fill_in 'movie_genre', with: 'Genre_1'
-  select(@actor.artistic_name, from: 'movie_actor_ids', match: :first)
+  check('movie_actor_ids_1')
   click_button 'CONFIRM'
 end
 

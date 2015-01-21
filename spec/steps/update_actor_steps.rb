@@ -22,12 +22,3 @@ end
 step "the actor is modify with success" do
   expect(page).to_not have_selector("#error_explanation")
 end
-
-
-
-    
-    
-    
-    
-    
-    
