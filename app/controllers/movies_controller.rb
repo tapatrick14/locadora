@@ -26,14 +26,14 @@ class MoviesController < ApplicationController
   # If the object was successfully created you was receive the message "Movie was successfully created.".
   # If the object wasnt successfully created you was receive a message of error.
   def create
-    @movie = Movie.new(params[:movie])
+    @movie = Movie.new(movie_params)
     respond_to do |format|
       if @movie.save
-        format.html {redirect_to @movie, notice: 'Movie was successfully created.'}
-        format.json { render :show, status: :created, location: @movie }
+        format.html {redirect_to(@movie, :notice => 'Movie was successfully created.')}
+        format.xml  {render :xml => @movie, :status => :created, :location => @movie}
       else
-        format.html {render :new}
-        format.json{render json: @movie.errors, status: :unprocessable_entity}
+        format.html {render :action => 'new'}
+        format.xml  {render :xml => @movie.errors, :status => unprocessable_entity}
       end
     end
   end
@@ -47,7 +47,7 @@ class MoviesController < ApplicationController
   # If the movie wasnt successfully updated you was receive a message of error.
   def update
     respond_to do |format|
-      if @movie.update_attributes(params[:movie])
+      if @movie.update(movie_params)
         format.html { redirect_to @movie, notice: 'Movie was successfully updated.' }
         format.json { render :show, status: :ok, location: @movie }
       else
@@ -79,7 +79,7 @@ class MoviesController < ApplicationController
   # == Returns
   # It return a hash with the title and the genre of the movie.
   def movie_params
-    params.require(:movie).permit(:title, :genre)
+    params.require(:movie).permit(:title, :genre, actor_ids: [])
   end
 
   # The SET_MOVIE is responsible by find a specific movie.

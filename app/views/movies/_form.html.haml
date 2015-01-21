@@ -1,4 +1,4 @@
-= simple_form_for(@movie) do |f|
+= nested_form_for(@movie) do |f|
   - if @movie.errors.any?
     #error_explanation
       %h2
@@ -20,8 +20,9 @@
     = f.text_field :genre
   %p
   .field
+    =f.label :ACTORS
     %br/
-    = f.association :actors, :as => :select
+    = f.collection_check_boxes :actor_ids , Actor.all, :id, :artistic_name
   %p
     = link_to 'BACK', movies_path
   %p 
