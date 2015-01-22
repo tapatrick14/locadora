@@ -5,4 +5,3 @@ Feature: Log out
   Scenario: I'm in the system and I want out
     When I click in Sign out buttom
     And I should see the log in page
-
