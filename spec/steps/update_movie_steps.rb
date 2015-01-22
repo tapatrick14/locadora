@@ -31,9 +31,3 @@ end
 step "the movie is modify with failure" do
   expect(page).to have_selector("#error_explanation")
 end
-
-
-
-
-
-
