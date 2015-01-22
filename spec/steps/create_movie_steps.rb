@@ -1,4 +1,6 @@
 step 'I visted the cadastre page to movie' do
+  send "There is a employee to login"
+  send "I'm logged into the system"
   visit('/movies/new')
 end
 

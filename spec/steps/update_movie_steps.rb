@@ -1,4 +1,6 @@
 step "give I have a movie" do
+  send "There is a employee to login"
+  send "I'm logged into the system"
   @movie = Movie.create({title: 'Movie_01', genre: 'Genre_01'})
 end
 
@@ -30,9 +32,8 @@ step "the movie is modify with failure" do
   expect(page).to have_selector("#error_explanation")
 end
 
-    
-    
-    
-    
-    
-    
+
+
+
+
+

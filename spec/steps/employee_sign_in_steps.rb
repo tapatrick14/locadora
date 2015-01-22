@@ -1,5 +1,5 @@
 step "There is a employee to login" do
-  @employee = Employee.create({name: "Fernando", address: "Rua Nova", job: "Caixa", cpf: "12345678", salary: "500", email: "joao@email.com", password: "147258369", password_confirmation: "147258369"})
+  @employee = Employee.create({name: "Joao", address: "Rua Nova", job: "Caixa", cpf: "12345678", salary: "500", email: "joao@email.com", password: "147258369", password_confirmation: "147258369"})
 end
 
 step "I filled correctly with the login" do
@@ -18,7 +18,7 @@ step "I click in Log in buttom" do
   click_button 'Log in'
 end
 
-step "I should see the home page withe the user name" do
+step "I should see the home page with the user name" do
   expect(page).to have_content("Locadora")
 end
 

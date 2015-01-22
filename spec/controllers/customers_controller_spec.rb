@@ -1,10 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe CustomersController, :type => :controller do
-
   subject (:customer){Customer.create}
   subject (:new_customer){{name: "Joao", last_name: "Da silva", phone: 888888 , address: "Rua nao sei"}}
   subject (:new_customer_invalid){{name: "", last_name: "", phone: 888888 , address: "Rua nao sei"}}
+
+  before :each do
+    sign_in
+  end
 
   describe "GET #index" do
     context "Test if the page was created " do
@@ -15,7 +18,7 @@ RSpec.describe CustomersController, :type => :controller do
     end
       it "renders the :index view" do
         get :index
-        expect(response.should render_template :index)
+        expect(response).to render_template(:index)
       end
   end
 
@@ -30,7 +33,7 @@ RSpec.describe CustomersController, :type => :controller do
 
     it "renders the #show view " do
       get :show, id: @customer
-      expect(response.should render_template :show)
+      expect(response).to render_template(:show)
     end
   end
 
@@ -48,7 +51,7 @@ RSpec.describe CustomersController, :type => :controller do
       end
 
       it "redirects to the new contact" do
-        expect( post :create, customer: new_customer).should redirect_to Customer.last
+        expect( post :create, customer: new_customer).to redirect_to Customer.last
       end
     end
 
@@ -68,19 +71,19 @@ RSpec.describe CustomersController, :type => :controller do
     context "valid attributes" do
       it "located the requested @costumer" do
         put :update, id: @new_customer, customer: new_customer2
-        assigns(:customer).should eq(@new_customer)
+        expect(assigns(:customer)).to eq(@new_customer)
       end
 
       it "changes @customers attributes" do
         put :update, id: @new_customer, customer: new_customer2
         @new_customer.reload
-        @new_customer.name.should eq("Pedro")
-        @new_customer.last_name.should eq("Vieira")
+        expect(@new_customer.name).to eq("Pedro")
+        expect(@new_customer.last_name).to eq("Vieira")
       end
 
       it "redirects to the updated costumer" do
         put :update, id: @new_customer, customer: new_customer2
-        response.should redirect_to(action: "show", id: @new_customer)
+        expect redirect_to(action: "show", id: @new_customer)
       end
     end
   end
@@ -97,7 +100,7 @@ RSpec.describe CustomersController, :type => :controller do
 
       it "redirects to costumer#index" do
         delete :destroy, id: @new_customer
-        response.should redirect_to(action: "index")
+        expect redirect_to(action: "index")
       end
     end
 end

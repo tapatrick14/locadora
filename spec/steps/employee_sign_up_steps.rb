@@ -1,5 +1,5 @@
 step "There is a employee" do
-  @employee = Employee.create({name: "Fernando", address: "Rua Nova", job: "Caixa", cpf: "12345678", salary: "500", email: "fernando@email.com", password: "147258369", password_confirmation: "147258369"})
+  @employee = Employee.create({name: "Employee", address: "Rua Velha", job: "Caixa", cpf: "9874563218", salary: "500", email: "employee@email.com", password: "22222222", password_confirmation: "22222222"})
 end
 
 step "I click in Sign Up" do

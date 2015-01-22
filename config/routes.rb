@@ -1,20 +1,21 @@
 Rails.application.routes.draw do
 
   devise_for :employees
+  root to: "home#index"
   resources :customers
   resources :movies
 
-  devise_scope :employee do
-    authenticated :employee do
-     root to: "home#index", as: :authenticated_root
-     resources :customers
-     resources :movies
-   end
+ #  devise_scope :employee do
+ #    authenticated :employee do
+ #     root to: "home#index", as: :authenticated_root
+ #     resources :customers
+ #     resources :movies
+ #   end
 
-    unauthenticated do
-     root to: "devise/sessions#new", as: :unauthenticated_root
-   end
- end
+ #    unauthenticated do
+ #     root to: "devise/sessions#new", as: :unauthenticated_root
+ #   end
+ # end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
