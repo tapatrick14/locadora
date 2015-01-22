@@ -1,4 +1,6 @@
 step "There is a customer" do
+  send "There is a employee to login"
+  send "I'm logged into the system"
   @customer = Customer.create({name: 'Fernando', last_name: 'Da Silva', phone: 88888888, address: 'Rua Nova'})
 end
 

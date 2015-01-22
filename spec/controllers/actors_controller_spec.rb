@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe ActorsController, :type => :controller do
+  before :each do
+    sign_in
+  end
+  
   describe "GET INDEX." do
     context "Test if the page was created." do
       it "Has a 200 a code." do

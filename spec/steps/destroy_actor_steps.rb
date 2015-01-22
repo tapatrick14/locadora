@@ -1,4 +1,6 @@
 step "give I have a actor" do
+  send "There is a employee to login"
+  send "I'm logged into the system"
   @actor = Actor.create({true_name: 'True Name_01', artistic_name: 'Artistic Name_01', birth: '2000-04-01'})
 end
 

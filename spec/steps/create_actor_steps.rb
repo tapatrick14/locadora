@@ -1,4 +1,6 @@
 step 'I visted the cadastre page to actor' do
+  send "There is a employee to login"
+  send "I'm logged into the system"
   visit('/actors/new')
 end
 
