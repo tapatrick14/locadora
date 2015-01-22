@@ -34,7 +34,6 @@ gem 'capybara'
 gem 'haml'
 gem 'yard'
 gem 'capybara-webkit'
-gem 'selenium-webdriver'
 gem 'database_cleaner'
 
 group :development, :test do
