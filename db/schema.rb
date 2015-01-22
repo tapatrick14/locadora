@@ -13,6 +13,19 @@
 
 ActiveRecord::Schema.define(version: 20150119153101) do
 
+  create_table "actors", force: true do |t|
+    t.string   "true_name"
+    t.string   "artistic_name"
+    t.datetime "birth"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "actors_movies", id: false, force: true do |t|
+    t.integer "actor_id"
+    t.integer "movie_id"
+  end
+
   create_table "customers", force: true do |t|
     t.string   "name"
     t.string   "last_name"

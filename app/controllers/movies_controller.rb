@@ -79,7 +79,7 @@ class MoviesController < ApplicationController
   # == Returns
   # It return a hash with the title and the genre of the movie.
   def movie_params
-    params.require(:movie).permit(:title, :genre)
+    params.require(:movie).permit(:title, :genre, actor_ids: [])
   end
 
   # The SET_MOVIE is responsible by find a specific movie.

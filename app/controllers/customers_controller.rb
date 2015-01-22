@@ -1,4 +1,4 @@
-## This class controll the operation of CRUD for the customers.
+# This class controll the operation of CRUD for the customers.
 class CustomersController < ApplicationController
 
   # The index method show all customers.

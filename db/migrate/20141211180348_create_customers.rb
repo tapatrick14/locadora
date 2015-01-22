@@ -1,3 +1,4 @@
+# This class is resposible by join between actor and movie. 
 class CreateCustomers < ActiveRecord::Migration
   def change
     create_table :customers do |t|

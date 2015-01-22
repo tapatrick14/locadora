@@ -6,6 +6,7 @@ Background:
   Given I visted the cadastre page to movie
 
   Scenario: Create a movie in the home page
+    And I have the actor
     When I filled out form of the movie correctly
     Then I should see a sign in success message of the movie
 
