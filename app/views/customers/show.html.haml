@@ -14,5 +14,9 @@
 %p
   %b Address:
   = @customer.address
+%p
+  %b MOVIE(S)
+  = @customer.movies.map {|x| x.to_label}.join ', '
 = link_to 'Edit', action: 'edit', id: @customer
 = link_to 'Back', action: 'index'
+= link_to 'Destroy', @customer, method: :delete, data: { confirm: 'Are you sure?' }
