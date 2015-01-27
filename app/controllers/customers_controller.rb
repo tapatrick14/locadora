@@ -83,6 +83,6 @@ class CustomersController < ApplicationController
   # == Returns
   # It return a hash with the name, last name, phone and address.
   def customer_params
-    params.require(:customer).permit(:name, :last_name, :phone, :address, movie_ids: [])
+    params.require(:customer).permit(:name, :last_name, :phone, :address)
   end
 end

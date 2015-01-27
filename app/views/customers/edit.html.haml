@@ -21,9 +21,5 @@
     %br/
     = f.text_field :address
   %p
-    =f.label :MOVIES
-    %br/
-    = f.collection_check_boxes :movie_ids , Movie.all, :id, :title
-  %p
   = f.submit
 = link_to 'Back', action: 'index'

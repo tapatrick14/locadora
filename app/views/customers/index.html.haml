@@ -1,13 +1,23 @@
-%h1 CUSTOMER
+%h1 List of Customer
 %table
-  %thead
-    %tr
-      %th ID
-      %th NAME
+  %tr
+    %th ID
+    %th Name
+    %th Last Name
+    %th Phone
+    %th Address
   - @customers.each do |customer|
     %tr
-      %th= link_to customer.id, customer
-      %th= link_to customer.name, customer
-      %th= link_to customer.last_name, customer
+      %td= customer.id
+      %td= customer.name
+      %td= customer.last_name
+      %td= customer.phone
+      %td= customer.address
+      %td
+        = link_to 'Show', action: 'show', id: customer
+        = link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' }
+        = link_to 'Edit', action: 'edit', id: customer
 %p
 %tr= link_to 'New', action: 'new'
+|
+%td= link_to 'SAIR', root_path

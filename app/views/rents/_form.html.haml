@@ -1,0 +1,30 @@
+= form_for [@rent.movie, @rent] do |f|
+  - if @rent.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@rent.errors.count, "error")
+        prohibited this evento from being saved:
+      %ul
+        - @rent.errors.full_messages.each do |message|
+          %li
+            = message
+  %p
+  .field
+    =f.label "TIME BEGIN"
+    %br/ 
+    = f.date_select :time_begin
+  %p
+  .field
+    =f.label "TIME END"
+    %br/ 
+    = f.date_select :time_end
+  %p
+  .field
+    =f.label :CUSTOMERS
+    %br/
+    = f.collection_select :customer_id , Customer.all, :id, :name
+  %p
+    = link_to 'BACK', movie_rents_path
+  %p 
+  .actions
+    = f.submit "CONFIRM"
