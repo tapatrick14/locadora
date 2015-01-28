@@ -22,7 +22,7 @@
   .field
     =f.label :CUSTOMERS
     %br/
-    = f.collection_select :customer_id , Customer.all, :id, :name
+    = f.collection_select :customer_id , Customer.all, :id, :full_name
   %p
     = link_to 'BACK', movie_rents_path
   %p 
