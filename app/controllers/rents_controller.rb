@@ -49,7 +49,6 @@ class RentsController < ApplicationController
   # If the rent was successfully updated you was receive the message "Rent was successfully updated.".
   # If the rent wasnt successfully updated you was receive a message of error.
   def update
-    movie = Movie.find(params[:movie_id])
     respond_to do |format|
       if @rent.update(rent_params)
         format.html { redirect_to [@rent.movie, @rent], notice: 'Rent was successfully updated.' }

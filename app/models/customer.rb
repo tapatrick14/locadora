@@ -4,6 +4,7 @@ class Customer < ActiveRecord::Base
   # VALIDATES_PRESENCE_OF: responsible to do the form fill the attributes required.
   validates_presence_of :name, :last_name, :phone, :address
 
+  # Return the full name {name + last_name}.
   def full_name
     str = self.name
     str += " #{self.last_name}"

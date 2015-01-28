@@ -43,17 +43,17 @@ RSpec.describe RentsController, :type => :controller do
     context "Passed valid attributes." do
       subject(:hash_rent){{time_begin: '2020-06-01', time_end: '2020-07-01', customer_id: 2}}
       it "Located the requestd movie." do
-        put :update, id: @rent, movie_id: @rent.movie_id, rent: hash_rent
+        put :update, id: @rent, movie_id: @rent.movie.id, rent: hash_rent
         expect(assigns(:rent)).to eq(@rent)
       end
       it "Changed rent's attributes." do
-        put :update, id: @rent, movie_id: @rent.movie_id, rent: hash_rent
+        put :update, id: @rent, movie_id: @rent.movie.id, rent: hash_rent
         @rent.reload
         expect(@rent.time_begin).to eq('2020-06-01')
         expect(@rent.time_end).to eq('2020-07-01')
       end
       it "Redirects to the update movie." do
-        expect(put :update, id: @rent, movie_id: @rent.movie_id, rent: hash_rent).to redirect_to movie_rent_path
+        expect(put :update, id: @rent, movie_id: @rent.movie.id, rent: hash_rent).to redirect_to movie_rent_path
       end
     end
   end
