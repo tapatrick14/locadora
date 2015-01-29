@@ -1,6 +1,4 @@
 %h1 List of Customer
-%br/
-= link_to 'New', action: 'new'
 %table
   %tr
     %th ID
@@ -19,3 +17,7 @@
         = link_to 'Show', action: 'show', id: customer
         = link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' }
         = link_to 'Edit', action: 'edit', id: customer
+%p
+%tr= link_to 'New', action: 'new'
+|
+%td= link_to 'SAIR', root_path

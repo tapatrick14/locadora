@@ -1,0 +1,11 @@
+%h1 RENT
+%table
+  %thead
+    %tr
+      %th NOME
+  - @rents.each do |rent|
+    %tr
+      %th
+        %td= link_to rent.customer.full_name, [rent.movie, rent]
+%p
+%tr= link_to 'SAIR', movies_path

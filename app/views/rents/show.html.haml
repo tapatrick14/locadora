@@ -1,0 +1,22 @@
+%h1 NEW RENT
+%p
+  %strong
+    TIME BEGIN
+  = @rent.time_begin.strftime('%d %b %Y')
+%p
+  %strong
+    TIME END
+  = @rent.time_end.strftime('%d %b %Y')
+%p
+  %strong 
+    THE CUSTOMER
+  = @rent.customer.full_name
+  %strong 
+    RENTED
+  = @rent.movie.title
+%p
+%td= link_to 'UPDATE', edit_movie_rent_path(@rent.movie, @rent)
+|
+%td= link_to 'DELETE', [@rent.movie, @rent], method: :delete, data:{confirm: 'ARE YOU SURE?'}
+|
+%td= link_to 'BACK', movie_rents_path

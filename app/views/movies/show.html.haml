@@ -10,8 +10,10 @@
 %p
   %strong 
     ACTORS OF THE MOVIE
-  = @movie.actors.map {|x| x.to_label}.join ', '
-%p
+  = @movie.actors.map {|x| x.artistic_name}.join ', '
+%movies_path
+  %td= link_to 'RENT', new_movie_rent_path(@movie)
+  |
   %td= link_to 'UPDATE', edit_movie_path(@movie)
   |
   %td= link_to 'DELETE', @movie, method: :delete, data:{confirm: 'ARE YOU SURE?'}

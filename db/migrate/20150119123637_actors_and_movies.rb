@@ -1,4 +1,4 @@
-# This class is resposible by join between Acotr and Movies in the database. 
+# This class is resposible by join between Actor and Movies in the database. 
 class ActorsAndMovies < ActiveRecord::Migration
   def change
     create_table :actors_movies, id: false do |t|
